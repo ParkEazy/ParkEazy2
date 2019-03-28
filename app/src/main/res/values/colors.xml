@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#000000</color>
+    <color name="gradStart">#000000</color>
+    <color name="gradStop">#000000</color>
+    <color name="black">#000000</color>
+    <color name="brightWhite">#ffffff</color>
+    <color name="blue">#0037ff</color>
+    <color name="red">#ff0000</color>
+    <color name="QRCodeBlackColor">#000000</color>
+    <color name="QRCodeWhiteColor">#ffffff</color>
+
+</resources>

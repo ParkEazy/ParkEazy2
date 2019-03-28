@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "500419477595",
+    "firebase_url": "https://parkeazy-eca7d.firebaseio.com",
+    "project_id": "parkeazy-eca7d",
+    "storage_bucket": "parkeazy-eca7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500419477595:android:653847b7e7b9e41f",
+        "android_client_info": {
+          "package_name": "com.example.siddheshsave.parkeazy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500419477595-armlmug28idlqfp8dmhks01n81cgolv5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.siddheshsave.parkeazy",
+            "certificate_hash": "ffec0afd8de385f63537de3632630224c9177794"
+          }
+        },
+        {
+          "client_id": "500419477595-7pgtccpg2t4m4r8shfvn355m7eer1hsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmQtNYzNBhgIwzqiuCw0OOMOhqiaobOLs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500419477595-7pgtccpg2t4m4r8shfvn355m7eer1hsq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
