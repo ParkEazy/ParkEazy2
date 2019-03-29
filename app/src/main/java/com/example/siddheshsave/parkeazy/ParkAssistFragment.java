@@ -4,6 +4,7 @@ package com.example.siddheshsave.parkeazy;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.provider.DocumentsContract;
 import android.support.annotation.NonNull;
@@ -111,6 +112,12 @@ public class ParkAssistFragment extends Fragment {
                 }
             }
         });
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Alert Sent",Toast.LENGTH_SHORT).show();
+            }
+        });
         final TextRecognizer textRecognizer = new TextRecognizer.Builder(getContext()).build();
         if (!textRecognizer.isOperational()) {
             Log.w("MainActivity", "Detector dependencies not loaded yet");
@@ -194,7 +201,6 @@ public class ParkAssistFragment extends Fragment {
         }
         return v;
     }
-
     /*@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
