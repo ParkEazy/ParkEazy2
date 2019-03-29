@@ -10,20 +10,33 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.shobhitpuri.custombuttons.GoogleSignInButton;
 
 public class MainActivity extends AppCompatActivity {
     Button b1,b2,b3;
     EditText ed1,ed2;
     private ProgressDialog progressDialog;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
+    GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInButton google_signin;
     RelativeLayout rellay1,rellay2;
     Handler handler=new Handler();
     Runnable runnable = new Runnable(){
@@ -46,8 +59,58 @@ public class MainActivity extends AppCompatActivity {
         b2=(Button)findViewById(R.id.button2);
         b3=(Button)findViewById(R.id.button3);
         firebaseAuth=FirebaseAuth.getInstance();
+        firebaseUser=firebaseAuth.getCurrentUser();
         progressDialog=new ProgressDialog(this);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient= GoogleSignIn.getClient(this,gso);
+        google_signin=(GoogleSignInButton) findViewById(R.id.google_button);
+        google_signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signInIntent=mGoogleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent,101);
+            }
+        });
         UserLoggedIn();
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == 101) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                firebaseAuthWithGoogle(account);
+            } catch (ApiException e) {
+
+            }
+        }
+    }
+    private void firebaseAuthWithGoogle(GoogleSignInAccount account)
+    {
+        AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            firebaseUser = firebaseAuth.getCurrentUser();
+                            finish();
+                            Intent i=new Intent(MainActivity.this,Main4Activity.class);
+                            startActivity(i);
+                            Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this,"Login Failed. Try Again",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
     public void UserLoggedIn(){
         firebaseAuth=FirebaseAuth.getInstance();

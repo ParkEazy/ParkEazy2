@@ -14,4 +14,15 @@
     <color name="QRCodeBlackColor">#000000</color>
     <color name="QRCodeWhiteColor">#ffffff</color>
 
+    <color name="colorPrimary1">#ffffff</color>
+    <color name="colorPrimaryDark1">#000</color>
+    <color name="colorAccent1">#D81B60</color>
+    <color name="colorLayerBack">#8a56ab</color>
+    <color name="colorBack">#ffffff</color>
+    <color name="colorTitle">#362742</color>
+    <color name="colorSubTitle">#c5c9cf</color>
+    <color name="colorTitleWhite">#ffffff</color>
+    <color name="colorSubTitleWhite">#b795ce</color>
+
+
 </resources>

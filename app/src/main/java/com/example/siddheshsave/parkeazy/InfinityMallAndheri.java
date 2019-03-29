@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.EditText;
@@ -31,11 +32,13 @@ public class InfinityMallAndheri extends AppCompatActivity implements AdapterVie
     TextView tv2;
     TextView tv;
     Spinner spinner;
+    ImageView image;
     DatePickerDialog datePickerDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infinity_mall_andheri);
+        image=(ImageView)findViewById(R.id.mall);
         b1=(Button)findViewById(R.id.button1);
         Name=(TextView)findViewById(R.id.name);
         Location=(TextView)findViewById(R.id.location);
@@ -55,6 +58,36 @@ public class InfinityMallAndheri extends AppCompatActivity implements AdapterVie
         String location=i.getExtras().getString("Location");
         Name.setText(name);
         Location.setText(location);
+        if(name.equals("Infinity Mall")&&location.equals("Andheri")){
+            image.setImageResource(R.drawable.infinity_mall_andheri);
+        }
+        if(name.equals("Infinity Mall")&&location.equals("Malad")){
+            image.setImageResource(R.drawable.infinity_mall_malad);
+        }
+        if(name.equals("Oberoi Mall")&&location.equals("Goregaon")){
+            image.setImageResource(R.drawable.oberoi_mall);
+        }
+        if(name.equals("Inorbit Mall")&&location.equals("Malad")){
+            image.setImageResource(R.drawable.inorbit_mall);
+        }
+        if(name.equals("Raghuleela Mall")&&location.equals("Kandivali")){
+            image.setImageResource(R.drawable.raghuleela_mall);
+        }
+        if(name.equals("Viviana Mall")&&location.equals("Thane")){
+            image.setImageResource(R.drawable.viviana_mall);
+        }
+        if(name.equals("Phoenix Market City")&&location.equals("Kurla")){
+            image.setImageResource(R.drawable.phoenix_market_city);
+        }
+        if(name.equals("Growels 101 Mall")&&location.equals("Kandivali")){
+            image.setImageResource(R.drawable.growels_101);
+        }
+        if(name.equals("Palladium Mall")&&location.equals("Lower Parel")){
+            image.setImageResource(R.drawable.palladium_mall);
+        }
+        if(name.equals("Atria Mall")&&location.equals("Worli")){
+            image.setImageResource(R.drawable.atria_mall);
+        }
     }
     public void Back(View v){
         Intent i=new Intent(InfinityMallAndheri.this,Main4Activity.class);

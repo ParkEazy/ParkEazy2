@@ -10,8 +10,8 @@
         android:title="History"
         android:icon="@drawable/history"></item>
     <item android:id="@+id/settings"
-        android:title="Settings"
-        android:icon="@drawable/settings"></item>
+        android:title="My Profile"
+        android:icon="@drawable/profile"></item>
     <item android:id="@+id/feedback"
         android:title="Feedback"
         android:icon="@drawable/feedback"></item>
