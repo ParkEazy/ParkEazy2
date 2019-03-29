@@ -164,12 +164,10 @@ public class Main3Activity extends AppCompatActivity {
         });
     }
     public void SignUp(View v) {
-        b2=(Button)findViewById(R.id.button2);
         Intent i=new Intent(Main3Activity.this,Main2Activity.class);
         startActivity(i);
     }
     public void Forgot(View v) {
-        b3=(Button)findViewById(R.id.button3);
         Intent i=new Intent(Main3Activity.this,Pop.class);
         startActivity(i);
         overridePendingTransition(R.anim.fade_in,R.anim.fade_out);

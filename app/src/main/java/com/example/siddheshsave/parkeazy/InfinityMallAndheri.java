@@ -31,6 +31,7 @@ public class InfinityMallAndheri extends AppCompatActivity implements AdapterVie
     Button button3;
     TextView tv2;
     TextView tv;
+    TextView Total,Cost;
     Spinner spinner;
     ImageView image;
     DatePickerDialog datePickerDialog;
@@ -38,6 +39,8 @@ public class InfinityMallAndheri extends AppCompatActivity implements AdapterVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infinity_mall_andheri);
+        Total=(TextView)findViewById(R.id.total);
+        Cost=(TextView)findViewById(R.id.cost);
         image=(ImageView)findViewById(R.id.mall);
         b1=(Button)findViewById(R.id.button1);
         Name=(TextView)findViewById(R.id.name);
@@ -134,6 +137,11 @@ public class InfinityMallAndheri extends AppCompatActivity implements AdapterVie
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
         parent.getItemAtPosition(pos);
+        String text = spinner.getSelectedItem().toString();
+        int c=Integer.parseInt(text);
+        int t=50*c;
+        String fin=Integer.toString(t);
+        Cost.setText(fin);
     }
     public void onNothingSelected(AdapterView<?> parent) {
         // Another interface callback

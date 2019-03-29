@@ -160,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void SignUp(View v) {
-        b2=(Button)findViewById(R.id.button2);
         Intent i=new Intent(MainActivity.this,Main2Activity.class);
         startActivity(i);
     }
